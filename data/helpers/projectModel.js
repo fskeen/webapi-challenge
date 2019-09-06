@@ -7,6 +7,7 @@ module.exports = {
   update,
   remove,
   getProjectActions,
+  getActionById
 };
 
 function get(id) {
@@ -58,4 +59,11 @@ function getProjectActions(projectId) {
   return db('actions')
     .where('project_id', projectId)
     .then(actions => actions.map(action => mappers.actionToBody(action)));
+}
+
+function getActionById(projectId, id) {
+  return db('actions')
+    .where('project_id', projectId)
+    .where('id', id)
+    .then(([id]) => this.get(id));
 }

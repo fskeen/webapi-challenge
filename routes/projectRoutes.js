@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const projectDB = require('../data/helpers/projectModel')
+const actionDB = require('../data/helpers/actionModel')
 
 router.use(express.json())
 
@@ -90,5 +91,8 @@ router.get('/:id/actions', (req, res) => {
         })
 
 });
+
+// ----------------- ACTIONS ------------------
+
 
 module.exports = router;
