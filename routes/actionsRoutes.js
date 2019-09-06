@@ -56,6 +56,7 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => { 
     const id = req.params.id;
     const changes = req.body;
+    console.log(id, changes)
     actionDB.update(id, changes)
         .then(editSuccess => {
             if (editSuccess) {
